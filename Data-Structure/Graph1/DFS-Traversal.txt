@@ -1,0 +1,59 @@
+package graph;
+
+import java.util.Scanner;
+
+public class DFS {
+	
+	// ALGORITHM:
+	/*
+	 * 1. TAKE STARTING VERTEX
+	 * 2. TAKE VISITED ARRAY
+	 * 3. FIRST PRINT STARTING VERTEX ELEMENT AND VISITED TRUE
+	 * 4. LIKE THERE IS GRAPH   0
+	 *                        1   2
+	 * 5. PHLE 0 PORINT KARYEGE FIR USKE NEIGHBOUR 0 AUR 1 ME ADGE HAI AU 1 NOT VISITED HAI STARTING VERTEX 1 AND THEN PRINT 1 , 1 1 ,E EDGE NHI TOH I BADJAYEGA 2
+	 * 6. 1 KA NEIGHBOUR 0 HAI PR VISITED HAI TOH KUCH NHI HOGA I BAAD JAYEGA                        
+	 */
+	public static void printHelperDFS(int edges[][], int sv, boolean visited[]) {//sv starting vertex kha se start kare
+		System.out.println(sv);
+		visited[sv]=true;
+		int n =edges.length;
+		for(int i=0;i<n;i++) {
+			if(edges[sv][i]==1 && !visited[i]) {
+				printHelperDFS(edges, i, visited);
+			}
+		}
+	}
+	
+	// CASE FOR DISCONNECTED/ CONNECTED
+	
+	public static void print(int edges[][], int sv) {
+		boolean visited[] = new boolean[edges.length];
+		for(int i=0;i<edges.length;i++) {
+			if(!visited[i]) {
+				printHelperDFS(edges, i, visited);
+			}
+		}
+		//printHelperDFS(edges, sv, visited);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int v;// NO. OF VERTEX/NODES
+		int e;// NO. OF EDGES
+		Scanner s = new Scanner(System.in);
+		v = s.nextInt();// no of nodes/vertices
+		e = s.nextInt();// no of edges
+		int edges[][] = new int[v][v];//by default 0
+		//jha edge hai vha 1 rkh rhe
+		for(int i = 0; i < e;i++) {
+			int fv = s.nextInt();
+			int sv = s.nextInt();
+			edges[fv][sv] = 1;
+			edges[fv][sv] = 1;
+		}
+		print(edges, 0);
+
+	}
+
+}
