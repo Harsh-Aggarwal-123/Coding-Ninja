@@ -1,0 +1,37 @@
+// algo
+reverse of s is t string dono ka lcs hoga vhe lps hoga
+
+
+
+public static int lpsDp(String s1) {
+    	String t = new StringBuilder(s1).reverse().toString();
+    	int m = s1.length();
+    	int n = t.length();
+    	int storage[][] = new int[m+1][n+1];
+    	// first row and first column
+    	for(int i=0; i<=m; i++) {
+    		storage[i][0] = 0;
+    	}
+    	for(int i=0; i<=n; i++) {
+    		storage[0][i] = 0;
+    	}
+    	//remaimning cells
+    	for(int i=1; i<=m; i++) {
+    		for(int j=1; j<=n; j++) {
+    			if(s1.charAt(m-i) == t.charAt(n-j)) {
+    				storage[i][j] = 1 + storage[i-1][j-1];
+    			} else {
+    				storage[i][j] = Math.max(storage[i][j-1], storage[i-1][j]);
+    			}
+    		}
+    	}
+    	return storage[m][n];
+    }
+    
+    public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s1 = "babbb";
+		System.out.println(lpsDp(s1));
+		
+
+	}
