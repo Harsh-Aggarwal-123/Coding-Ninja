@@ -5,7 +5,8 @@
 algo:
 ek baar l to r
 el baar r to left
-
+tc : O(n)
+sc : O(n)
 
 class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
