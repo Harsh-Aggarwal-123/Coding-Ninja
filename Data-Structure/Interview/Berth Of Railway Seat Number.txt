@@ -1,0 +1,22 @@
+public class Solution {
+    public static String berthType(int seatNumber) {
+        // Write your code here
+        if (seatNumber > 0 && seatNumber < 73){
+            if (seatNumber % 8 == 1 || seatNumber % 8 == 4){
+                return "Lower";
+            }else if (seatNumber % 8 == 2 || seatNumber % 8 == 5){
+                return "Middle";
+            }else if (seatNumber % 8 == 3 || seatNumber % 8 == 6){
+                return "Upper";
+            }else if (seatNumber % 8 == 7){
+                return "Side Lower";
+            }else {
+                return "Side Upper";
+            }
+           
+        }else{
+            return "Invalid"; 
+        }      
+    }
+       
+}
