@@ -1,1 +1,1 @@
-# Coding-Ninja
+# CN
